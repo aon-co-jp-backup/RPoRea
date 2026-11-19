@@ -29,9 +29,13 @@ cargo run -p rporea --example hello
 
 **RPoRea は、RPoem と Reaxt を1つにしたものです。** Rust だけで、画面もサーバーも作れます。起動は1行です。
 
+**完成イメージ**: サーバーに RPoRea を**1か所だけ**入れます。RPoRea は上位版で、Reaxt の役目も兼ねます(`easy-web.tokyo/RPoRea`)。これで open-easy-web・RPoem・aruaru-llm・open-directx・open-cuda・open-cpu などを、サイトごとに入れ直す必要がなくなります。各サイトは「分身」として動きます(非同期・マルチスレッド)。省メモリで、速く、安全に。**REST API と Node.js は使いません。**
+
 - **使える言語**: 基本は Rust です。Python も使えます(Windows と Linux で動作を確認しました)。Mojo と RMojo はまだ試していません。
 - **対応 OS**: 今は Windows と Linux。完成したら Mac・Android・iPhone・iPad・スーパーコンピューターにも広げます。
 - **一緒に使うもの**: 開発中の Rust 版 HTML5・CSS3・TypeScript です。決めごとは4つ。HTML と CSS はできるだけ少なく。tokio と WASM は合うところだけ。REST は使わない。JavaScript より TypeScript を先に作る。
+
+**現状(正直に)**: できている=RPoRea の入口と Python 連携、認証ヘッダの条件付き転送、分身ホスティングの土台(open-web-server と RPoem で、実プロセスの起動と振り分けを確認)、aruaru-llm の同時実行制限(本番で稼働)。まだ=1か所への入れ替え配備、サイトごとの分離(別ユーザー・メモリ制限)、open-cuda・open-directx・open-cpu を共有基盤として呼ぶ統合、公開ページ。上の完成イメージは目標で、全部できたわけではありません。
 
 **いまの状態**: 動くもの=起動の入口、Python 連携、テスト。まだのもの=open-cosmo との結合確認、Mojo/RMojo、Mac やスマホ。
 
@@ -43,9 +47,13 @@ cargo run -p rporea --example hello
 
 **RPoRea joins RPoem and Reaxt.** You can build both the screen and the server in Rust alone. Starting an app takes one line.
 
+**The goal**: install RPoRea **once** on a server. RPoRea is the upper edition and also does Reaxt's job (`easy-web.tokyo/RPoRea`). Then open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu and the rest do not have to be installed again for every site. Each site runs as a "shadow clone" (async, multi-threaded): light on memory, fast and safe. **No REST API and no Node.js.**
+
 - **Languages**: Rust is the main one. Python works too (checked on Windows and Linux). Mojo and RMojo are not tested yet.
 - **Systems**: Windows and Linux for now. Mac, Android, iPhone, iPad and supercomputers come after the release is done.
 - **Works with**: our Rust versions of HTML5, CSS3 and TypeScript, which are still being built. Four rules: use as little HTML and CSS as possible; use tokio and WASM only where they fit; no REST; build TypeScript before JavaScript.
+
+**Where we are (honestly)**: done: the RPoRea entry point and Python support, conditional forwarding of credentials, the base of shadow-clone hosting (real processes started and routed in open-web-server and RPoem), aruaru-llm's concurrency limit (live in production). Not yet: one-place install and deployment, per-site isolation (separate users, memory limits), calling open-cuda, open-directx and open-cpu as shared services, the public pages. The goal above is a target, not something already finished.
 
 **Status**: working: the start-up entry point, Python support, tests. Not yet: joining with open-cosmo, Mojo/RMojo, Mac and phones.
 
@@ -57,9 +65,13 @@ More: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB-STACK
 
 **RPoRea 把 RPoem 和 Reaxt 合在了一起。** 只用 Rust,就能做出界面和服务器。启动只要一行代码。
 
+**完成后的样子**:在服务器上**只装一次** RPoRea。RPoRea 是上位版,也承担 Reaxt 的作用(`easy-web.tokyo/RPoRea`)。这样 open-easy-web、RPoem、aruaru-llm、open-directx、open-cuda、open-cpu 等,就不用给每个网站各装一遍。每个网站都以“分身”方式运行(异步、多线程):省内存、速度快、更安全。**不使用 REST API,也不使用 Node.js。**
+
 - **可用的语言**:主要是 Rust。Python 也能用(已在 Windows 和 Linux 上确认)。Mojo 和 RMojo 还没有试过。
 - **支持的系统**:现在是 Windows 和 Linux。正式版完成后,再支持 Mac、Android、iPhone、iPad 和超级计算机。
 - **搭配使用**:我们正在开发的 Rust 版 HTML5、CSS3 和 TypeScript。有四条约定:HTML 和 CSS 尽量少用;tokio 和 WASM 只在合适的地方用;不用 REST;先做 TypeScript,再做 JavaScript。
+
+**现状(如实说明)**:已完成:RPoRea 的入口和 Python 支持、认证头的有条件转发、分身托管的基础(在 open-web-server 和 RPoem 中验证了真实进程的启动和分流)、aruaru-llm 的并发限制(已在线上运行)。尚未完成:一处安装与部署、按网站隔离(独立用户、内存限制)、把 open-cuda、open-directx、open-cpu 作为共享服务来调用、公开页面。上面的样子是目标,并非全部已经做好。
 
 **现状**:能用的有启动入口、Python 支持和测试。还没做的有与 open-cosmo 的组合验证、Mojo/RMojo、Mac 和手机。
 
@@ -71,9 +83,13 @@ More: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB-STACK
 
 **RPoRea 把 RPoem 和 Reaxt 合在一起。** 只用 Rust,就能做出畫面和伺服器。啟動只要一行程式碼。
 
+**完成後的樣子**:在伺服器上**只裝一次** RPoRea。RPoRea 是上位版,也承擔 Reaxt 的作用(`easy-web.tokyo/RPoRea`)。這樣 open-easy-web、RPoem、aruaru-llm、open-directx、open-cuda、open-cpu 等,就不用替每個網站各裝一遍。每個網站都以「分身」方式執行(非同步、多執行緒):省記憶體、速度快、更安全。**不使用 REST API,也不使用 Node.js。**
+
 - **可用的語言**:主要是 Rust。Python 也能用(已在 Windows 和 Linux 上確認)。Mojo 和 RMojo 還沒試過。
 - **支援的系統**:現在是 Windows 和 Linux。正式版完成後,再支援 Mac、Android、iPhone、iPad 和超級電腦。
 - **搭配使用**:我們正在開發的 Rust 版 HTML5、CSS3 和 TypeScript。有四項約定:HTML 和 CSS 盡量少用;tokio 和 WASM 只用在合適的地方;不用 REST;先做 TypeScript,再做 JavaScript。
+
+**現況(如實說明)**:已完成:RPoRea 的入口與 Python 支援、認證標頭的有條件轉送、分身代管的基礎(在 open-web-server 與 RPoem 中驗證了真實行程的啟動與分流)、aruaru-llm 的並行上限(已在正式環境運作)。尚未完成:一處安裝與部署、依網站隔離(獨立使用者、記憶體限制)、把 open-cuda、open-directx、open-cpu 當作共用服務來呼叫、公開頁面。上面的樣子是目標,並非全都已經做好。
 
 **現況**:能用的有啟動入口、Python 支援和測試。還沒做的有與 open-cosmo 的整合驗證、Mojo/RMojo、Mac 和手機。
 
@@ -85,9 +101,13 @@ More: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB-STACK
 
 **RPoRea는 RPoem과 Reaxt를 하나로 합친 것입니다.** Rust만으로 화면도 서버도 만들 수 있습니다. 시작은 코드 한 줄이면 됩니다.
 
+**완성된 모습**: 서버에 RPoRea를 **한 곳에만** 설치합니다. RPoRea는 상위 버전이며 Reaxt의 역할도 함께 합니다(`easy-web.tokyo/RPoRea`). 그러면 open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu 등을 사이트마다 다시 설치할 필요가 없습니다. 각 사이트는 "분신"처럼 동작합니다(비동기, 멀티스레드). 메모리는 적게, 속도는 빠르게, 더 안전하게. **REST API와 Node.js는 쓰지 않습니다.**
+
 - **쓸 수 있는 언어**: 기본은 Rust입니다. Python도 쓸 수 있습니다(Windows와 Linux에서 확인했습니다). Mojo와 RMojo는 아직 해 보지 않았습니다.
 - **지원 OS**: 지금은 Windows와 Linux입니다. 완성되면 Mac, Android, iPhone, iPad, 슈퍼컴퓨터로 넓힙니다.
 - **함께 쓰는 것**: 개발 중인 Rust판 HTML5, CSS3, TypeScript입니다. 약속은 네 가지입니다. HTML과 CSS는 가능한 한 적게. tokio와 WASM은 어울리는 곳에만. REST는 쓰지 않기. JavaScript보다 TypeScript를 먼저 만들기.
+
+**현재 상태(솔직하게)**: 된 것: RPoRea 진입점과 Python 연동, 인증 헤더의 조건부 전달, 분신 호스팅의 기초(open-web-server와 RPoem에서 실제 프로세스 시작과 분배를 확인), aruaru-llm의 동시 실행 제한(운영 중). 아직인 것: 한 곳 설치·배포, 사이트별 분리(별도 사용자, 메모리 제한), open-cuda·open-directx·open-cpu를 공유 서비스로 호출하는 통합, 공개 페이지. 위의 모습은 목표이며 전부 끝난 것은 아닙니다.
 
 **현재 상태**: 되는 것은 시작 진입점, Python 연동, 테스트입니다. 아직인 것은 open-cosmo와의 결합 확인, Mojo/RMojo, Mac과 스마트폰입니다.
 
@@ -99,9 +119,13 @@ More: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB-STACK
 
 **RPoRea verbindet RPoem und Reaxt.** Oberfläche und Server entstehen allein mit Rust. Ein Programm startet mit einer Zeile.
 
+**Das Ziel**: RPoRea wird **nur einmal** auf dem Server installiert. RPoRea ist die höhere Ausgabe und übernimmt auch die Aufgabe von Reaxt (`easy-web.tokyo/RPoRea`). Dann müssen open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu und die übrigen nicht für jede Website neu installiert werden. Jede Website läuft als „Schattendoppelgänger“ (asynchron, mehrere Threads): sparsam beim Speicher, schnell und sicher. **Keine REST-API und kein Node.js.**
+
 - **Sprachen**: Hauptsprache ist Rust. Python geht auch (auf Windows und Linux geprüft). Mojo und RMojo sind noch nicht getestet.
 - **Systeme**: Zurzeit Windows und Linux. Mac, Android, iPhone, iPad und Supercomputer folgen nach der fertigen Version.
 - **Passt zusammen mit**: unserem Rust-HTML5, -CSS3 und -TypeScript, die noch in Arbeit sind. Vier Regeln: so wenig HTML und CSS wie möglich; tokio und WASM nur, wo sie passen; kein REST; erst TypeScript, dann JavaScript.
+
+**Wo wir stehen (ehrlich)**: Fertig: der Einstieg von RPoRea und die Python-Anbindung, die bedingte Weitergabe von Anmeldedaten, die Grundlage für Schattendoppelgänger-Hosting (echte Prozesse in open-web-server und RPoem gestartet und verteilt), das Gleichzeitigkeitslimit von aruaru-llm (produktiv). Noch offen: Installation und Auslieferung an einer Stelle, Trennung pro Website (eigene Benutzer, Speicherlimits), Aufruf von open-cuda, open-directx und open-cpu als gemeinsame Dienste, die öffentlichen Seiten. Das Ziel oben ist ein Vorhaben, nicht etwas schon Fertiges.
 
 **Stand**: Es läuft: der Startpunkt, die Python-Anbindung, die Tests. Noch offen: das Zusammenspiel mit open-cosmo, Mojo/RMojo, Mac und Handys.
 
@@ -113,9 +137,13 @@ Mehr dazu: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB-
 
 **RPoRea réunit RPoem et Reaxt.** On crée l'écran et le serveur avec Rust seulement. Pour démarrer, une seule ligne suffit.
 
+**L'objectif** : installer RPoRea **une seule fois** sur le serveur. RPoRea est l'édition supérieure et remplit aussi le rôle de Reaxt (`easy-web.tokyo/RPoRea`). Ainsi, open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu et les autres n'ont plus à être réinstallés pour chaque site. Chaque site tourne comme un « clone d'ombre » (asynchrone, multi-thread) : économe en mémoire, rapide et sûr. **Pas d'API REST, pas de Node.js.**
+
 - **Langages** : Rust est le principal. Python marche aussi (vérifié sous Windows et Linux). Mojo et RMojo ne sont pas encore testés.
 - **Systèmes** : Windows et Linux pour l'instant. Mac, Android, iPhone, iPad et supercalculateurs viendront ensuite.
 - **À utiliser avec** : nos versions Rust de HTML5, CSS3 et TypeScript, encore en cours de création. Quatre règles : le moins possible de HTML et de CSS ; tokio et WASM seulement là où ils conviennent ; pas de REST ; TypeScript avant JavaScript.
+
+**Où nous en sommes (honnêtement)** : fait : le point d'entrée de RPoRea et le lien avec Python, la transmission conditionnelle des identifiants, la base de l'hébergement par clones d'ombre (vrais processus lancés et aiguillés dans open-web-server et RPoem), la limite de concurrence d'aruaru-llm (en production). Pas encore : l'installation et le déploiement en un seul endroit, l'isolation par site (utilisateurs séparés, limites de mémoire), l'appel d'open-cuda, open-directx et open-cpu comme services partagés, les pages publiques. L'objectif ci-dessus est une cible, pas quelque chose de déjà terminé.
 
 **État** : ça marche : le point de départ, le lien avec Python, les tests. Pas encore : l'assemblage avec open-cosmo, Mojo/RMojo, Mac et téléphones.
 
@@ -127,9 +155,13 @@ Pour en savoir plus : [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md
 
 **RPoRea une RPoem y Reaxt.** Con solo Rust se hace la pantalla y el servidor. Para empezar basta una línea.
 
+**El objetivo**: instalar RPoRea **una sola vez** en el servidor. RPoRea es la edición superior y también hace el trabajo de Reaxt (`easy-web.tokyo/RPoRea`). Así, open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu y los demás no hay que instalarlos de nuevo para cada sitio. Cada sitio funciona como un «clon de sombra» (asíncrono, multihilo): poca memoria, rápido y seguro. **Sin API REST y sin Node.js.**
+
 - **Lenguajes**: el principal es Rust. Python también funciona (probado en Windows y Linux). Mojo y RMojo aún no se han probado.
 - **Sistemas**: por ahora Windows y Linux. Mac, Android, iPhone, iPad y supercomputadoras llegarán cuando la versión esté lista.
 - **Para usar junto con**: nuestras versiones en Rust de HTML5, CSS3 y TypeScript, que aún están en construcción. Cuatro reglas: lo menos posible de HTML y CSS; tokio y WASM solo donde encajen; sin REST; primero TypeScript y después JavaScript.
+
+**Dónde estamos (con franqueza)**: hecho: el punto de entrada de RPoRea y el enlace con Python, el reenvío condicional de credenciales, la base del alojamiento con clones de sombra (procesos reales iniciados y enrutados en open-web-server y RPoem), el límite de concurrencia de aruaru-llm (en producción). Falta: instalación y despliegue en un solo lugar, aislamiento por sitio (usuarios separados, límites de memoria), llamar a open-cuda, open-directx y open-cpu como servicios compartidos, las páginas públicas. El objetivo de arriba es una meta, no algo ya terminado.
 
 **Estado**: funciona: el punto de arranque, el enlace con Python y las pruebas. Falta: unirlo con open-cosmo, Mojo/RMojo, Mac y móviles.
 
@@ -141,9 +173,13 @@ Más información: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](d
 
 **O RPoRea junta o RPoem e o Reaxt.** Só com Rust, você cria a tela e o servidor. Para começar, basta uma linha.
 
+**O objetivo**: instalar o RPoRea **uma única vez** no servidor. O RPoRea é a edição superior e também faz o trabalho do Reaxt (`easy-web.tokyo/RPoRea`). Assim, open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu e os demais não precisam ser instalados de novo para cada site. Cada site roda como um "clone de sombra" (assíncrono, multithread): pouca memória, rápido e seguro. **Sem API REST e sem Node.js.**
+
 - **Linguagens**: a principal é o Rust. O Python também funciona (testado no Windows e no Linux). Mojo e RMojo ainda não foram testados.
 - **Sistemas**: por enquanto, Windows e Linux. Mac, Android, iPhone, iPad e supercomputadores vêm depois que a versão estiver pronta.
 - **Para usar junto com**: nossas versões em Rust de HTML5, CSS3 e TypeScript, que ainda estão sendo feitas. Quatro regras: o mínimo possível de HTML e CSS; tokio e WASM só onde fizerem sentido; sem REST; primeiro o TypeScript, depois o JavaScript.
+
+**Onde estamos (com sinceridade)**: pronto: o ponto de entrada do RPoRea e a ligação com Python, o repasse condicional de credenciais, a base da hospedagem com clones de sombra (processos reais iniciados e roteados no open-web-server e no RPoem), o limite de concorrência do aruaru-llm (em produção). Ainda não: instalação e implantação em um só lugar, isolamento por site (usuários separados, limites de memória), chamar open-cuda, open-directx e open-cpu como serviços compartilhados, as páginas públicas. O objetivo acima é uma meta, não algo já concluído.
 
 **Situação**: já funciona: o ponto de partida, a ligação com Python e os testes. Ainda não: juntar com o open-cosmo, Mojo/RMojo, Mac e celulares.
 
@@ -155,9 +191,13 @@ Saiba mais: [docs/BINDINGS.md](docs/BINDINGS.md) · [docs/WEB-STACK.md](docs/WEB
 
 **RPoRea объединяет RPoem и Reaxt.** Только на Rust можно сделать и экран, и сервер. Запуск — одна строка.
 
+**Конечная цель**: установить RPoRea на сервер **только один раз**. RPoRea — старшая версия и заодно выполняет роль Reaxt (`easy-web.tokyo/RPoRea`). Тогда open-easy-web, RPoem, aruaru-llm, open-directx, open-cuda, open-cpu и остальное не нужно ставить заново для каждого сайта. Каждый сайт работает как «теневой клон» (асинхронно, в нескольких потоках): мало памяти, быстро и безопасно. **Без REST API и без Node.js.**
+
 - **Языки**: главный — Rust. Python тоже работает (проверено в Windows и Linux). Mojo и RMojo пока не проверялись.
 - **Системы**: сейчас Windows и Linux. Mac, Android, iPhone, iPad и суперкомпьютеры — когда будет готов релиз.
 - **Работает вместе с**: нашими версиями HTML5, CSS3 и TypeScript на Rust, которые ещё в разработке. Четыре правила: как можно меньше HTML и CSS; tokio и WASM — только там, где они нужны; без REST; сначала TypeScript, потом JavaScript.
+
+**Где мы сейчас (честно)**: готово: точка входа RPoRea и связь с Python, условная передача учётных данных, основа хостинга на «теневых клонах» (реальные процессы запускаются и распределяются в open-web-server и RPoem), ограничение параллельности в aruaru-llm (работает в продакшене). Ещё нет: установка и развёртывание в одном месте, изоляция по сайтам (отдельные пользователи, лимиты памяти), вызов open-cuda, open-directx и open-cpu как общих служб, публичные страницы. Цель выше — это задача на будущее, а не уже готовое.
 
 **Состояние**: работает: точка запуска, связь с Python, тесты. Ещё нет: связка с open-cosmo, Mojo/RMojo, Mac и телефоны.
 
