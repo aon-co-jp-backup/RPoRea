@@ -1,0 +1,14 @@
+[package]
+name = "rporea-ffi"
+description = "RPoRea の C ABI。Python / Mojo / RMojo など Rust 以外の言語から、共有ライブラリ経由で使う"
+version = "0.0.1"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/aon-co-jp/RPoRea"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+rporea = { path = "../rporea" }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
