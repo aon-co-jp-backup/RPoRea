@@ -30,6 +30,12 @@ jobs:
         with: { repository: aon-co-jp/RS-SmartTCP, path: RS-SmartTCP }
       - uses: actions/checkout@v4
         with: { repository: aon-co-jp/open-raid-z, path: open-raid-z }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cpu, path: open-cpu }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cuda, path: open-cuda }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-directx, path: open-directx }
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build -p rporea-ffi --release
       - run: cargo test -p rporea -p rporea-ffi
@@ -66,6 +72,12 @@ jobs:
         with: { repository: aon-co-jp/RS-SmartTCP, path: RS-SmartTCP }
       - uses: actions/checkout@v4
         with: { repository: aon-co-jp/open-raid-z, path: open-raid-z }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cpu, path: open-cpu }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cuda, path: open-cuda }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-directx, path: open-directx }
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-apple-ios,aarch64-apple-ios-sim
@@ -92,6 +104,12 @@ jobs:
         with: { repository: aon-co-jp/RS-SmartTCP, path: RS-SmartTCP }
       - uses: actions/checkout@v4
         with: { repository: aon-co-jp/open-raid-z, path: open-raid-z }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cpu, path: open-cpu }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-cuda, path: open-cuda }
+      - uses: actions/checkout@v4
+        with: { repository: aon-co-jp/open-directx, path: open-directx }
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-linux-android
