@@ -20,6 +20,6 @@ GitHub上の正式なリポジトリ名は **`open-cosmo`**(`aon-co-jp/open-cosm
 5. 動作確認は実サーバー・実ブラウザで行い、確認していないことは「未確認」と書く。
 
 ## 接点の現状(2026-11-19)
-- Reaxt → open-cosmo: Reaxtは `reaxt_actions::subgraph::install(app)` でFederation v2のサブグラフ(`POST /_reaxt/graphql`、`_service{sdl}`)を公開する。**open-cosmoのルーターに実際に合成させる確認は未実施**(Reaxt側の未了項目)。
+- Reaxt → open-cosmo: Reaxtは `reaxt_actions::subgraph::install(app)` でFederation v2のサブグラフ(`POST /_reaxt/graphql`、`_service{sdl}`)を公開する。**2026-11-19に実機で確認**: 実際のReaxtサーバーを `OPEN_RUNO_SUBGRAPHS` に登録したopen-cosmoのゲートウェイ経由で、問い合わせ `{ reaxt_ready }`=true、ミューテーション `demo_v1_Counter_Inc`=1、`x-reaxt` 無しは403のまま。確認で見つけた2つのずれを直した: (1) Reaxtが `__schema` のイントロスペクションに答えず、ゲートウェイがフィールドを見つけられなかった → Reaxt側で最小応答を追加。(2) ゲートウェイが `x-reaxt` を転送せずCSRFガードで拒否された → ゲートウェイが `x-reaxt` だけを転送(認証系ヘッダは転送しない。転送の是非は未決)。**未了**: ゲートウェイは「ルートフィールドの振り分け」で、複数サブグラフをまたぐ問い合わせの計画・`@key` 結合は未実装。スキーマレジストリ(`open-runo-federation::compose`)にReaxtのSDLを載せる確認も未実施。
 - Reaxt → RPoem: `reaxt-rpoem`(`route`/`route_production`、ゲートウェイ・manifest・ストリーミング、非同期ストリーミングは実HTTP/実ブラウザで確認済み)。
 - RPoRea: `rporea::start`/`serve` が上の2つを束ねる(試験1件)。

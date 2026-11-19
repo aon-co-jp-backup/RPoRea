@@ -7,7 +7,7 @@
 - REST は作らない(Connect のみ)。JSON は RS-JSON。秘密は表示しない。push・タグは確認してから。
 - RPoem の `Server::run` は「起動して返す」ので、`JoinHandle` を待たないとプロセスが終わる(`rporea::serve` が待つ)。
 - 文書(README/CLAUDE/PORTING)は更新のたびに **10 か国語**(日・英・簡中・繁中〈台湾〉・韓・独・仏・西・葡〈ブラジル〉・露)で。ネイティブに近い自然さで、IT・Web・AI の専門家が、子供から大人まで分かるように、短く、やさしい言葉で書く。
-- 次の作業: ①open-cosmo のルーターに Reaxt のサブグラフ(`POST /_reaxt/graphql`)を実合成して確認(最優先) ②Mojo/RMojo の検証 ③`.ts` → JS → アセット登録の CLI ④Mac・モバイル。
+- 次の作業: ①(2026-11-19 ゲートウェイ経由の実機確認は済み、`docs/THREE-SISTERS.md`)残りは複数サブグラフにまたがる問い合わせとレジストリ登録、認証ヘッダ転送の判断 ②Mojo/RMojo の検証 ③`.ts` → JS → アセット登録の CLI ④Mac・モバイル。
 
 ## 日本語
 
