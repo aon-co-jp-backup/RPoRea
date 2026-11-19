@@ -1,0 +1,17 @@
+[package]
+name = "rporea"
+description = "RPoRea: RPoem + Reaxt の融合。Reaxtのアプリを1行でRPoem上に載せて起動する"
+version = "0.0.1"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/aon-co-jp/RPoRea"
+
+[dependencies]
+# 3姉妹(Reaxt・RPoem・open-cosmo)は兄弟ディレクトリに置く: F:\Reaxt F:\RPoem F:\open-cosmo
+reaxt = { path = "../../Reaxt" }
+reaxt-rpoem = { path = "../../Reaxt/reaxt-rpoem" }
+open-runo-poem-compat = { path = "../../RPoem/crates/open-runo-poem-compat" }
+tokio = { version = "1", features = ["rt", "macros"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-util", "net", "time"] }
